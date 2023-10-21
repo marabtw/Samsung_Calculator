@@ -1,0 +1,190 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(190deg, #3bccf0, #e7ad0f);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden; }
+  .calculator .calcWinTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 1.6rem;
+    background-color: #2d2d2d;
+    padding: 2% 0;
+    cursor: move; }
+    .calculator .calcWinTitle .titleBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 1.2rem;
+      margin-right: 1%;
+      border: none;
+      background-color: red;
+      color: white;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      font-size: 1.1rem; }
+  .calculator .calcWindow {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #3f3f3f; }
+    .calculator .calcWindow .history {
+      background: #3f3f3f;
+      width: 0;
+      height: 40rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2% 0;
+      transition: 0.5s; }
+      .calculator .calcWindow .history .historyScreen {
+        width: 90%;
+        height: 100%;
+        border-radius: 1.5rem;
+        background: #000000;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: end;
+        overflow: auto;
+        padding: 3%;
+        font-size: 1.5rem; }
+        .calculator .calcWindow .history .historyScreen .historyItem {
+          display: flex;
+          flex-direction: column;
+          align-items: end;
+          width: 100%;
+          padding: 3%;
+          margin-top: 2%;
+          cursor: pointer;
+          background: #0d0d0d;
+          border-radius: 1rem;
+          flex-wrap: wrap;
+          overflow: auto; }
+          .calculator .calcWindow .history .historyScreen .historyItem .historyResult {
+            width: 100%;
+            color: #08a11f;
+            font-size: 1.2rem;
+            text-align: start; }
+          .calculator .calcWindow .history .historyScreen .historyItem .historyBuffer {
+            width: 100%;
+            color: #ffffff;
+            font-size: 1rem;
+            text-align: start; }
+
+.calcApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30rem;
+  height: 40rem;
+  padding: 2% 0; }
+  .calcApp .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    width: 90%;
+    height: 27%;
+    background-color: #000000;
+    border-radius: 1.5rem;
+    padding: 1% 2%; }
+    .calcApp .screen .screenTitle {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 25%;
+      color: #ffffff;
+      font-size: 1.2rem; }
+      .calcApp .screen .screenTitle .historyBtn {
+        background: none;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        cursor: pointer; }
+        .calcApp .screen .screenTitle .historyBtn:hover {
+          background-color: #cccccc;
+          color: black; }
+      .calcApp .screen .screenTitle .historyClearBtn {
+        display: none;
+        background: none;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        cursor: pointer; }
+        .calcApp .screen .screenTitle .historyClearBtn:hover {
+          background-color: #990000;
+          color: white; }
+    .calcApp .screen .screenShow {
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 100%;
+      height: 70%;
+      overflow: auto; }
+      .calcApp .screen .screenShow .screenRes {
+        font-size: 1.8rem;
+        color: #08a11f; }
+      .calcApp .screen .screenShow .screenTask {
+        font-size: 1.4rem;
+        color: #ffffff; }
+  .calcApp .btns {
+    padding: 2%;
+    width: 90%;
+    height: 72%;
+    background: #000000;
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-rows: repeat(5, 1fr); }
+    .calcApp .btns .clcBtn {
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      background: #202020;
+      border-radius: 2rem;
+      border: none; }
+      .calcApp .btns .clcBtn:hover {
+        cursor: pointer;
+        background: #3a3a3a; }
+    .calcApp .btns .funcBtn {
+      background-color: #035510; }
+      .calcApp .btns .funcBtn:hover {
+        background-color: #058619; }
+    .calcApp .btns .equalBtn:hover {
+      color: #ae1e08; }
+    .calcApp .btns .clearBtn {
+      color: #ae1e08; }
+    .calcApp .btns .deleteBtn:hover {
+      color: #ae1e08; }

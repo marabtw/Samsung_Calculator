@@ -1,0 +1,244 @@
+@import 'variables';
+*,*::after,*::before{   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(190deg, #3bccf0, #e7ad0f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+    
+    .calcWinTitle{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        height: 1.6rem;
+        background-color: $titleBarBg;
+        padding: 2% 0;
+        cursor: move;
+
+        .titleBtn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.5rem;
+            height: 1.2rem;
+            margin-right: 1%;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+    }
+    
+    .calcWindow{
+        display: flex;
+        flex-direction: row-reverse;
+    
+        background-color: $calcBg;
+        
+        .history{
+            background: $historyBg;
+            width: 0;
+            height: 40rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            padding: 2% 0;
+            transition: 0.5s;
+
+            .historyScreen{
+                width: 90%;
+                height: 100%;
+                border-radius: 1.5rem;
+                background: $historyScreenBg;
+                color: $fontColor;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: end;
+                overflow: auto;
+                padding: 3%;
+                font-size: 1.5rem;
+
+                .historyItem{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: end;
+                    width: 100%;
+                    padding: 3%;
+                    margin-top: 2%;
+                    cursor: pointer;
+                    background: lighten($historyScreenBg, $amount: 5%);
+                    border-radius: 1rem;
+                    flex-wrap: wrap;
+                    overflow: auto;
+                    .historyResult{
+                        width: 100%;
+                        color: $secFontColor;
+                        font-size: 1.2rem;
+                        text-align: start;
+                    }
+                    .historyBuffer{
+                        width: 100%;
+                        color: $fontColor;
+                        font-size: 1rem;
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.calcApp{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 30rem;
+    height: 40rem;
+    padding: 2% 0;
+
+    .screen{    
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+
+        width: 90%;
+        height: 27%;
+
+        background-color: $ScreenBg;
+        border-radius: 1.5rem;
+        padding: 1% 2%;
+
+
+        .screenTitle{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 25%;
+            color: $fontColor;
+            font-size: 1.2rem;
+            
+            .historyBtn{
+                background: none;
+                color: $fontColor;
+                border: 1px solid $fontColor;
+                width: 1.7rem;
+                height: 1.7rem;
+                border-radius: 50%;
+                cursor: pointer;
+                &:hover{
+                    background-color: darken($color: $fontColor, $amount: 20%);
+                    color: black;
+                }
+            }
+            .historyClearBtn{
+                display: none;
+                background: none;
+                color: $fontColor;
+                border: 1px solid $fontColor;
+                width: 1.7rem;
+                height: 1.7rem;
+                border-radius: 50%;
+                cursor: pointer;
+                &:hover{
+                    background-color: darken($color: red, $amount: 20%);
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+
+        .screenShow{
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100%;
+            height: 70%;
+            overflow: auto;
+
+            .screenRes{
+                font-size: 1.8rem;
+                color: $secFontColor;
+                
+            }
+            .screenTask{
+                font-size: 1.4rem;
+                color: $fontColor;
+            }
+        }
+
+    }
+    .btns{
+        padding: 2%;
+        width: 90%;
+        height: 72%;
+        background: $btnsBg;
+        border-radius: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        grid-template-rows: repeat(5, 1fr);
+        
+        .clcBtn{
+            color: $fontColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: $btnBg;
+            border-radius: 2rem;
+            border: none;
+        
+            &:hover{
+                cursor: pointer;
+                background: lighten($btnBg, $amount: 10%);
+            }
+
+        }
+        .funcBtn{
+            background-color: $funcBtnBg;
+            &:hover{
+                background-color: lighten($funcBtnBg, $amount: 10%);
+            }
+        }
+        .equalBtn{
+            &:hover{
+                color: $clearBtnColor;
+            }
+        }
+        .clearBtn{
+            color: $clearBtnColor;
+        }
+        .deleteBtn{
+            &:hover{
+                color: $clearBtnColor;
+            }
+        }
+    }
+}
